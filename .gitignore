@@ -8,3 +8,5 @@ node_modules/
 build/
 # Idea files
 .idea/
+# Yarn
+yarn.lock
