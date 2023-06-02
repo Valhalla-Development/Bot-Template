@@ -1,0 +1,8 @@
+# Node FIles
+node_modules/
+# Config File
+.env
+# Irritating file create by Mac
+.DS_Store
+# Build files
+build/
