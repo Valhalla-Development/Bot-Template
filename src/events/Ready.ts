@@ -81,6 +81,6 @@ export class Ready {
         );
 
         // Set activity
-        if (process.env.Activity) client.user?.setActivity(process.env.Activity);
+        if (process.env.Activity) client.user?.setActivity({ type: ActivityType.Watching, name: process.env.Activity });
     }
 }
