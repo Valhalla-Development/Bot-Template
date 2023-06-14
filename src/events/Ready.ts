@@ -2,7 +2,7 @@ import type { Client } from 'discordx';
 import { Discord, Once } from 'discordx';
 import si from 'systeminformation';
 import 'colors';
-import { ActivityType, ActivityOptions } from 'discord.js';
+import { ActivityType } from 'discord.js';
 
 /**
  * Discord.js Ready event handler.
