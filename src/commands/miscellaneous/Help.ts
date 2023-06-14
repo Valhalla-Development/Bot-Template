@@ -96,7 +96,7 @@ export class Help {
             .setFooter({
                 text: `Bot Version ${process.env.npm_package_version}`,
                 iconURL: `${client.user?.avatarURL()}`,
-            })
+            });
 
         filteredCommands.forEach((cmd) => {
             const commandId = commandIds[cmd.name];
