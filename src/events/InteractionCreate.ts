@@ -34,12 +34,12 @@ export class InteractionCreate {
             // Add fields to the log embed with information about the executed command
             logEmbed.addFields({
                 name: `Guild: ${interaction.guild.name} | Date: <t:${nowInSecond}>`,
-                value: codeBlock('kotlin', `${interaction.user.tag} just executed the '${interaction.toString()}' command`),
+                value: codeBlock('kotlin', `${interaction.user.username} just executed the '${interaction.toString()}' command`),
             });
             // Log the command execution in the console
             const LoggingNoArgs = `[\x1b[31m${moment().format(
                 'LLLL',
-            )}\x1b[0m] '\x1b[92m${interaction.toString()}\x1b[0m' Command was executed by \x1b[31m${interaction.user.tag}\x1b[0m (Guild: \x1b[31m${
+            )}\x1b[0m] '\x1b[92m${interaction.toString()}\x1b[0m' Command was executed by \x1b[31m${interaction.user.username}\x1b[0m (Guild: \x1b[31m${
                 interaction.guild.name
             }\x1b[0m)`;
             console.log(LoggingNoArgs);
