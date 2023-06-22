@@ -20,7 +20,7 @@
 
 This project provides a template for creating a Discord bot using [discordx](https://discord-x.js.org/) and [discord.js v14](https://discord.js.org/).
 
-## Features (View the bottom)
+## Features (View the bottom of this page to view screenshots)
 
 - **Bot Info:** Upon startup, the bot provides a concise status report, detailing key operational metrics such as the number of users, guilds, slash commands, events, and memory usage, as well as the Node.js and discord.js versions it's running on.
 - **Error Handling:** This template comes with a robust error handling system. It logs errors to the console for debugging and can send detailed error messages to a specific Discord channel. These messages are neatly formatted within a Discord embed for easy readability. To enable this feature, provide the `LoggingChannel` variable in your `.env` file with the ID of the desired channel.
