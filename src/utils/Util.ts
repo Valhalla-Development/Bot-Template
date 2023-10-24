@@ -18,9 +18,13 @@ export function capitalise(string: string): string {
  * @returns void
  */
 export function deletableCheck(message: Message, time: number): void {
-    setTimeout(() => {
-        if (message && message.deletable) {
-            message.delete().catch(console.error);
+    setTimeout(async () => {
+        try {
+            if (message && message.deletable) {
+                await message.delete();
+            }
+        } catch (error) {
+            // Do nothing with the error
         }
     }, time);
 }
