@@ -83,7 +83,7 @@ async function run() {
             await sleep(time);
             await client.login(process.env.Token as string);
         } catch (error) {
-            console.error('Failed to log in.');
+            console.error('An error occurred while initializing the bot:', error);
         }
     };
     await loadSequentially();
