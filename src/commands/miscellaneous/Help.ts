@@ -81,33 +81,40 @@ export class Help {
      */
     @SelectMenuComponent({ id: 'helpSelect' })
     async handle(interaction: StringSelectMenuInteraction, client: Client): Promise<void> {
+        // Check if the user interacting with the select menu is the command executor
         if (interaction.user.id !== interaction.message.interaction?.user.id) {
-            const wrongUser = new EmbedBuilder()
+            const wrongUserMessage = new EmbedBuilder()
                 .setColor('#e91e63')
                 .addFields({
                     name: `**${client.user?.username} - ${capitalise(interaction.message.interaction?.commandName ?? '')}**`,
                     value: '**◎ Error:** Only the command executor can select an option!',
                 });
-            await interaction.reply({ ephemeral: true, embeds: [wrongUser] });
+
+            // Reply with an ephemeral message indicating the error
+            await interaction.reply({ ephemeral: true, embeds: [wrongUserMessage] });
             return;
         }
 
-        // Receive value from select menu
-        const value = interaction.values?.[0];
+        // Retrieve the selected value from the select menu
+        const selectedValue = interaction.values?.[0];
 
-        // Return if no value
-        if (!value.length) {
+        // Return if no value is selected
+        if (!selectedValue) {
             return deletableCheck(interaction.message, 0);
         }
 
-        // Search for category
-        const selectedCategory = value.replace(/^help-/, '').toLowerCase();
+        // Extract the category from the selected value
+        const selectedCategory = selectedValue.replace(/^help-/, '').toLowerCase();
+
+        // Filter application commands based on the selected category
         const filteredCommands = MetadataStorage.instance.applicationCommands.filter(
             (cmd: DApplicationCommand & ICategory) => cmd.category?.toLowerCase() === selectedCategory && cmd.name?.toLowerCase() !== 'help',
         );
 
+        // Retrieve command IDs for mentions
         const commandIds = await getCommandIds(client);
 
+        // Create an embed to display the selected category's commands
         const embed = new EmbedBuilder()
             .setColor('#e91e63')
             .setDescription(`Hey, I'm **__${client.user?.username}__**`)
@@ -118,6 +125,7 @@ export class Help {
                 iconURL: `${client.user?.avatarURL()}`,
             });
 
+        // Add fields for each command in the selected category
         filteredCommands.forEach((cmd) => {
             const commandId = commandIds[cmd.name];
             const commandMention = commandId ? `</${cmd.name}:${commandId}>` : capitalise(cmd.name);
@@ -127,6 +135,7 @@ export class Help {
             });
         });
 
+        // Update the interaction with the embed containing category-specific commands
         await interaction.update({ embeds: [embed] });
     }
 }
