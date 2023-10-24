@@ -18,9 +18,8 @@ const client = new Client({
  * @param error - The error that was not handled.
  * @returns void
  */
-process.on('unhandledRejection', (error: Error) => {
-    if (!error?.stack) return;
-
+process.on('unhandledRejection', async (error) => {
+    if (!error || !(error instanceof Error) || !error.stack) return;
     console.error(error.stack);
 
     if (process.env.Logging && process.env.Logging.toLowerCase() === 'true') {
@@ -44,7 +43,12 @@ process.on('unhandledRejection', (error: Error) => {
         }
 
         const embed = new EmbedBuilder().setTitle('Error').setDescription(truncateDescription(fullString));
-        channel.send({ embeds: [embed] });
+
+        try {
+            await channel.send({ embeds: [embed] });
+        } catch (sendError) {
+            console.error('An error occurred while sending the error embed:', sendError);
+        }
     }
 });
 
