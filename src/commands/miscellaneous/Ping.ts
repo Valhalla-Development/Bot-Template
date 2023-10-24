@@ -14,7 +14,7 @@ export class Ping {
      * @param client - The Discord client.
      */
     @Slash({ description: 'Displays bot and API ping.' })
-    async ping(interaction: CommandInteraction, client: Client) {
+    async ping(interaction: CommandInteraction, client: Client): Promise<void> {
         if (!interaction.channel) return;
 
         const msg = await interaction.channel.send({ content: 'Pinging...' });
