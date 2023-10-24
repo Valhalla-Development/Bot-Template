@@ -55,13 +55,13 @@ process.on('unhandledRejection', (error: Error) => {
  * @throws An Error if any required environment variables are missing or invalid.
  */
 async function run() {
-    const missingTokenError = 'You must pass the token for the client.';
-    const invalidLoggingValueError = 'The \'logging\' value must be true or false.';
-    const invalidLoggingChannel = 'You must pass a logging channel if logging is set to true.';
+    const missingTokenError = 'The Token environment variable is missing.';
+    const invalidLoggingValueError = 'The Logging environment variable must be "true" or "false".';
+    const invalidLoggingChannel = 'The LoggingChannel environment variable is required when logging is enabled.';
 
-    if (process.env.Logging !== 'true' && process.env.Logging !== 'false') throw new Error(invalidLoggingValueError);
+    if (!process.env.Token) throw new Error(missingTokenError);
     if (process.env.Logging === 'true' && !process.env.LoggingChannel) throw new Error(invalidLoggingChannel);
-    if (!process.env.Token) throw Error(missingTokenError);
+    if (process.env.Logging !== 'true' && process.env.Logging !== 'false') throw new Error(invalidLoggingValueError);
 
     /**
      * Delays the execution of the function for a specified time in milliseconds.
