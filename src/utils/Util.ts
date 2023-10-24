@@ -32,7 +32,7 @@ export function deletableCheck(message: Message, time: number): void {
  * @returns An object containing command names and their corresponding IDs.
  * If there are no commands or an error occurs, an empty object is returned.
  */
-export async function getCommandIds(client: Client) {
+export async function getCommandIds(client: Client): Promise<{ [name: string]: string }> {
     try {
         // Fetch the registered global application commands
         const commands = await client.application?.commands.fetch();
