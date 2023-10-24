@@ -78,9 +78,13 @@ async function run() {
      * @returns A Promise that resolves with void when everything is loaded sequentially.
      */
     const loadSequentially = async () => {
-        await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.{ts,js}`);
-        await sleep(time);
-        await client.login(process.env.Token as string);
+        try {
+            await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.{ts,js}`);
+            await sleep(time);
+            await client.login(process.env.Token as string);
+        } catch (error) {
+            console.error('Failed to log in.');
+        }
     };
     await loadSequentially();
 }
