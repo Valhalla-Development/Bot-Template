@@ -7,7 +7,7 @@ import 'colors';
  * @param string - The string to be capitalised.
  * @returns The capitalised string.
  */
-export function capitalise(string: string) {
+export function capitalise(string: string): string {
     return string.replace(/\S+/g, (word) => word.slice(0, 1).toUpperCase() + word.slice(1));
 }
 
