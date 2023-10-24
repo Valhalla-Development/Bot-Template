@@ -19,7 +19,7 @@ export class InteractionCreate {
         try {
             await client.executeInteraction(interaction);
         } catch (err) {
-            console.error(err);
+            console.error(`Error executing interaction: ${err}`);
         }
 
         // Logging
