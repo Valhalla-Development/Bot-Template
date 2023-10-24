@@ -19,6 +19,7 @@ export class Help {
     async help(interaction: CommandInteraction, client: Client) {
         if (!interaction.channel) return;
 
+        // Create the initial embed for the message
         const embed = new EmbedBuilder()
             .setColor('#e91e63')
             .setDescription(`Hey, I'm **__${client.user?.username}__**`)
@@ -29,29 +30,48 @@ export class Help {
                 iconURL: `${client.user?.avatarURL()}`,
             });
 
-        // This just filters all command categories where a: it exists and then b: removes duplicates
+        // Fetch unique command categories
         const uniqueCategories = Array.from(new Set(
             MetadataStorage.instance.applicationCommands
                 .filter((cmd: DApplicationCommand & ICategory) => cmd.category)
                 .map((cmd: DApplicationCommand & ICategory) => cmd.category as string),
         ));
 
-        // Now we want to create a new object for each category
+        // Create options for the select menu
         const cats: SelectMenuComponentOptionData[] = uniqueCategories.map((cat) => ({
             label: cat,
             value: `help-${cat.toLowerCase()}`,
         }));
 
-        const row = new ActionRowBuilder<StringSelectMenuBuilder>()
-            .addComponents(
-                new StringSelectMenuBuilder()
-                    .setCustomId('helpSelect')
-                    .setPlaceholder('Nothing selected')
-                    .addOptions(...cats),
+        if (cats.length <= 1) {
+            // If there's only one category, fetch and display commands from that category
+            const selectedCategory = cats[0].value.replace(/^help-/, '').toLowerCase();
+            const filteredCommands = MetadataStorage.instance.applicationCommands.filter(
+                (cmd: DApplicationCommand & ICategory) => cmd.category?.toLowerCase() === selectedCategory && cmd.name?.toLowerCase() !== 'help',
             );
+            const commandIds = await getCommandIds(client);
+            filteredCommands.forEach((cmd) => {
+                const commandId = commandIds[cmd.name];
+                const commandMention = commandId ? `</${cmd.name}:${commandId}>` : capitalise(cmd.name);
+                embed.addFields({
+                    name: `● ${commandMention}`,
+                    value: `\u200b \u200b \u200b ○ ${cmd.description}`,
+                });
+            });
 
-        // Send the initial message with the select menu
-        await interaction.reply({ embeds: [embed], components: [row] });
+            // Send the initial message without the select menu
+            await interaction.reply({ embeds: [embed] });
+        } else {
+            // Create the select menu and send the initial message with it
+            const row = new ActionRowBuilder<StringSelectMenuBuilder>()
+                .addComponents(
+                    new StringSelectMenuBuilder()
+                        .setCustomId('helpSelect')
+                        .setPlaceholder('Nothing selected')
+                        .addOptions(...cats),
+                );
+            await interaction.reply({ embeds: [embed], components: [row] });
+        }
     }
 
     /**
