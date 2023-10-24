@@ -22,32 +22,28 @@ export class InteractionCreate {
             console.error(`Error executing interaction: ${err}`);
         }
 
-        // Logging
         if (process.env.Logging && process.env.Logging.toLowerCase() === 'true') {
-            if (!interaction.isChatInputCommand()) return;
+            if (interaction.isChatInputCommand()) {
+                const nowInMs = Date.now();
+                const nowInSecond = Math.round(nowInMs / 1000);
 
-            const nowInMs = Date.now();
-            const nowInSecond = Math.round(nowInMs / 1000);
+                const logEmbed = new EmbedBuilder().setColor('#e91e63');
+                const executedCommand = interaction.toString();
 
-            const logEmbed = new EmbedBuilder().setColor('#e91e63');
+                logEmbed.addFields({
+                    name: `Guild: ${interaction.guild.name} | Date: <t:${nowInSecond}>`,
+                    value: codeBlock('kotlin', `${interaction.user.username} executed the '${executedCommand}' command`),
+                });
 
-            // Add fields to the log embed with information about the executed command
-            logEmbed.addFields({
-                name: `Guild: ${interaction.guild.name} | Date: <t:${nowInSecond}>`,
-                value: codeBlock('kotlin', `${interaction.user.username} just executed the '${interaction.toString()}' command`),
-            });
-            // Log the command execution in the console
-            const LoggingNoArgs = `[\x1b[31m${moment().format(
-                'LLLL',
-            )}\x1b[0m] '\x1b[92m${interaction.toString()}\x1b[0m' Command was executed by \x1b[31m${interaction.user.username}\x1b[0m (Guild: \x1b[31m${
-                interaction.guild.name
-            }\x1b[0m)`;
-            console.log(LoggingNoArgs);
+                const LoggingNoArgs = `[\x1b[31m${moment().format('LLLL')}\x1b[0m] '\x1b[92m${executedCommand}\x1b[0m' Command was executed by \x1b[31m${interaction.user.username}\x1b[0m (Guild: \x1b[31m${interaction.guild.name}\x1b[0m)`;
+                console.log(LoggingNoArgs);
 
-            // Send the log embed to the designated command logging channel, if specified
-            if (process.env.CommandLogging) {
-                const channel = client.channels.cache.get(process.env.CommandLogging);
-                if (channel && channel.type === ChannelType.GuildText) channel.send({ embeds: [logEmbed] });
+                if (process.env.CommandLogging) {
+                    const channel = client.channels.cache.get(process.env.CommandLogging);
+                    if (channel && channel.type === ChannelType.GuildText) {
+                        channel.send({ embeds: [logEmbed] });
+                    }
+                }
             }
         }
     }
