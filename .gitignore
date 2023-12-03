@@ -34,5 +34,7 @@ build/
 # ========================
 
 # Yarn: lock file and error log
-yarn.lock
+.yarn/
 yarn-error.log
+.pnp.cjs
+.pnp.loader.mjs
