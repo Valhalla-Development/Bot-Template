@@ -5,13 +5,6 @@
 # macOS generated files
 .DS_Store
 
-# ========================
-# Node.js related files
-# ========================
-
-# Dependency directories
-node_modules/
-
 # Environment variables
 .env
 
