@@ -50,10 +50,10 @@ $ yarn start    # Starts your bot. You are now ready to use your bot!
 Screenshots related to the Features mentioned in this page.
 
 - Bot Info 
-</br><img src="https://valhalladev.org/wilbur/info.png" alt="Bot Info" style="width: 500px;">
+</br><img src="https://share.valhalladev.org/r/eB587n.png" alt="Bot Info" style="width: 500px;">
 - Error Handling
-</br><img src="https://valhalladev.org/wilbur/error.png" alt="Error Handler" style="width: 300px;">
+</br><img src="https://share.valhalladev.org/r/Raxmmv.png" alt="Error Handler" style="width: 300px;">
 - Command Logging
-</br><img src="https://valhalladev.org/wilbur/command.png" alt="Command Logger" style="width: 400px;">
+</br><img src="https://share.valhalladev.org/r/rsRWEI.png" alt="Command Logger" style="width: 400px;">
 - Help Command
-</br><img src="https://valhalladev.org/wilbur/help.png" alt="Help" style="width: 400px;">
+</br><img src="https://share.valhalladev.org/r/oufi4V.png" alt="Help" style="width: 400px;">
