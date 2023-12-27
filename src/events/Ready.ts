@@ -72,7 +72,7 @@ export class Ready {
         );
         console.log(
             'Discord.js Version:'.white.bold,
-            `${version.substring(1)}`.green.bold,
+            `${version}`.green.bold,
         );
         console.log(
             `${client.user?.username} Version:`.white.bold,
