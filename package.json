@@ -1,6 +1,6 @@
 {
   "name": "bot-template",
-  "version": "1.0.43",
+  "version": "1.0.44",
   "main": "build/Main.js",
   "repository": "https://github.com/Valhalla-Development/Bot-Template.git",
   "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
