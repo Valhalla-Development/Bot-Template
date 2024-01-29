@@ -1,19 +1,21 @@
 {
   "name": "bot-template",
   "version": "1.0.45",
-  "main": "build/Main.js",
-  "repository": "https://github.com/Valhalla-Development/Bot-Template.git",
-  "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
+  "description": "This project provides a template for creating a Discord bot using discordx and discord.js v14.",
   "license": "GPL-3.0-or-later",
-  "engines": {
-    "node": ">=18"
-  },
-  "scripts": {
-    "start": "tsc && node build/Main.js",
-    "dev": "tsc-watch --onSuccess \"node ./build/Main.js\"",
-    "audit": "eslint . --format codeframe"
+  "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
+  "homepage": "https://github.com/Valhalla-Development/Bot-Template#readme",
+  "repository": "https://github.com/Valhalla-Development/Bot-Template.git",
+  "bugs": {
+    "url": "https://github.com/Valhalla-Development/Bot-Template/issues"
   },
   "type": "module",
+  "main": "build/Main.js",
+  "scripts": {
+    "audit": "eslint . --format codeframe",
+    "dev": "tsc-watch --onSuccess \"node ./build/Main.js\"",
+    "start": "tsc && node build/Main.js"
+  },
   "dependencies": {
     "@discordx/importer": "^1.3.0",
     "@discordx/utilities": "^6.1.0",
@@ -34,6 +36,9 @@
     "eslint-plugin-import": "^2.29.1",
     "tsc-watch": "^6.0.4",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "packageManager": "yarn@4.0.2"
 }
