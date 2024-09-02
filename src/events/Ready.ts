@@ -2,7 +2,8 @@ import type { Client } from 'discordx';
 import { Discord, Once } from 'discordx';
 import si from 'systeminformation';
 import 'colors';
-import { ActivityType, version } from 'discord.js';
+import { version } from 'discord.js';
+import { updateStatus } from '../utils/Util.js';
 
 /**
  * Discord.js Ready event handler.
@@ -81,10 +82,6 @@ export class Ready {
         );
 
         // Set activity
-        client.user?.setActivity({
-            type: ActivityType.Watching,
-            name: `${client.guilds.cache.size.toLocaleString('en')} Guilds
-            ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString('en')} Users`,
-        });
+        updateStatus(client);
     }
 }
