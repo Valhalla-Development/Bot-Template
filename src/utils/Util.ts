@@ -1,4 +1,4 @@
-import type { Message } from 'discord.js';
+import { ActivityType, Message } from 'discord.js';
 import { Client } from 'discordx';
 import 'colors';
 
@@ -57,4 +57,16 @@ export async function getCommandIds(client: Client): Promise<{ [name: string]: s
         console.error('Error fetching global commands:', error);
         return {};
     }
+}
+
+/**
+ * Updates the status of the Discord client with information about guilds and users.
+ * @param client - The Discord client instance.
+ */
+export function updateStatus(client: Client) {
+    client.user?.setActivity({
+        type: ActivityType.Watching,
+        name: `${client.guilds.cache.size.toLocaleString('en')} Guilds
+            ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString('en')} Users`,
+    });
 }
