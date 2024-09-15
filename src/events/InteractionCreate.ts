@@ -2,6 +2,7 @@ import type { ArgsOf, Client } from 'discordx';
 import { Discord, On } from 'discordx';
 import { ChannelType, codeBlock, EmbedBuilder } from 'discord.js';
 import moment from 'moment';
+import { reversedRainbow } from '../utils/Util.js';
 
 @Discord()
 export class InteractionCreate {
@@ -35,8 +36,11 @@ export class InteractionCreate {
                     value: codeBlock('kotlin', `${interaction.user.username} executed the '${executedCommand}' command`),
                 });
 
-                const LoggingNoArgs = `[\x1b[31m${moment().format('LLLL')}\x1b[0m] '\x1b[92m${executedCommand}\x1b[0m' Command was executed by \x1b[31m${interaction.user.username}\x1b[0m (Guild: \x1b[31m${interaction.guild.name}\x1b[0m)`;
-                console.log(LoggingNoArgs);
+                console.log(
+                    `${'◆◆◆◆◆◆'.rainbow.bold} ${moment().format('MMM D, h:mm A')} ${reversedRainbow('◆◆◆◆◆◆')}\n`
+                    + `${'🔧 Command:'.brightBlue.bold} ${executedCommand.brightYellow.bold}\n${
+                        `${'🔍 Executor:'.brightBlue.bold} ${interaction.user.displayName.underline.brightMagenta.bold} ${'('.gray.bold}${'Guild: '.brightBlue.bold}${interaction.guild.name.underline.brightMagenta.bold}`.brightBlue.bold}${')'.gray.bold}\n`,
+                );
 
                 if (process.env.CommandLogging) {
                     const channel = client.channels.cache.get(process.env.CommandLogging);
