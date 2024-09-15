@@ -1,6 +1,6 @@
 {
   "name": "bot-template",
-  "version": "1.0.51",
+  "version": "1.0.54",
   "description": "This project provides a template for creating a Discord bot using discordx and discord.js v14.",
   "license": "GPL-3.0-or-later",
   "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
