@@ -2,7 +2,6 @@ import type { Client } from 'discordx';
 import { Discord, Slash } from 'discordx';
 import { ChannelType, CommandInteraction, EmbedBuilder } from 'discord.js';
 import { Category } from '@discordx/utilities';
-import { deletableCheck } from '../../utils/Util.js';
 
 @Discord()
 @Category('Miscellaneous')
