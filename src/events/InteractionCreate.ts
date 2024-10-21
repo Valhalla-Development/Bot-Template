@@ -23,30 +23,34 @@ export class InteractionCreate {
             console.error(`Error executing interaction: ${err}`);
         }
 
-        if (process.env.Logging && process.env.Logging.toLowerCase() === 'true') {
-            if (interaction.isChatInputCommand()) {
-                const nowInMs = Date.now();
-                const nowInSecond = Math.round(nowInMs / 1000);
+        if (process.env.LOGGING?.toLowerCase() === 'true') {
+            if (!interaction.isChatInputCommand()) return;
 
-                const logEmbed = new EmbedBuilder().setColor('#e91e63');
-                const executedCommand = interaction.toString();
+            const now = Date.now();
+            const nowInSeconds = Math.floor(now / 1000);
+            const executedCommand = interaction.toString();
 
-                logEmbed.addFields({
-                    name: `Guild: ${interaction.guild.name} | Date: <t:${nowInSecond}>`,
+            // Console logging
+            console.log(
+                `${'◆◆◆◆◆◆'.rainbow.bold} ${moment(now).format('MMM D, h:mm A')} ${reversedRainbow('◆◆◆◆◆◆')}\n`
+                    + `${'🔧 Command:'.brightBlue.bold} ${executedCommand.brightYellow.bold}\n`
+                    + `${'🔍 Executor:'.brightBlue.bold} ${interaction.user.displayName.underline.brightMagenta.bold} ${'('.gray.bold}${'Guild: '.brightBlue.bold}${interaction.guild.name.underline.brightMagenta.bold}${')'}`,
+            );
+
+            // Embed logging
+            const logEmbed = new EmbedBuilder()
+                .setColor('#e91e63')
+                .addFields({
+                    name: `Guild: ${interaction.guild.name} | Date: <t:${nowInSeconds}>`,
                     value: codeBlock('kotlin', `${interaction.user.username} executed the '${executedCommand}' command`),
                 });
 
-                console.log(
-                    `${'◆◆◆◆◆◆'.rainbow.bold} ${moment().format('MMM D, h:mm A')} ${reversedRainbow('◆◆◆◆◆◆')}\n`
-                    + `${'🔧 Command:'.brightBlue.bold} ${executedCommand.brightYellow.bold}\n${
-                        `${'🔍 Executor:'.brightBlue.bold} ${interaction.user.displayName.underline.brightMagenta.bold} ${'('.gray.bold}${'Guild: '.brightBlue.bold}${interaction.guild.name.underline.brightMagenta.bold}`.brightBlue.bold}${')'.gray.bold}\n`,
-                );
-
-                if (process.env.CommandLogging) {
-                    const channel = client.channels.cache.get(process.env.CommandLogging);
-                    if (channel && channel.type === ChannelType.GuildText) {
-                        channel.send({ embeds: [logEmbed] });
-                    }
+            // Channel logging
+            const loggingChannelId = process.env.COMMAND_LOGGING;
+            if (loggingChannelId) {
+                const channel = client.channels.cache.get(loggingChannelId);
+                if (channel?.type === ChannelType.GuildText) {
+                    channel.send({ embeds: [logEmbed] }).catch(console.error);
                 }
             }
         }
