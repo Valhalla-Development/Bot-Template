@@ -23,7 +23,7 @@ export class InteractionCreate {
             console.error(`Error executing interaction: ${err}`);
         }
 
-        if (process.env.LOGGING?.toLowerCase() === 'true') {
+        if (process.env.ENABLE_LOGGING?.toLowerCase() === 'true') {
             if (!interaction.isChatInputCommand()) return;
 
             const now = Date.now();
