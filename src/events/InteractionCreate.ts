@@ -40,15 +40,16 @@ export class InteractionCreate {
             // Embed logging
             const logEmbed = new EmbedBuilder()
                 .setColor('#e91e63')
-                .addFields({
-                    name: `Guild: ${interaction.guild.name} | Date: <t:${nowInSeconds}>`,
-                    value: codeBlock('kotlin', `${interaction.user.username} executed the '${executedCommand}' command`),
-                });
+                .setTitle('Command Execution Log')
+                .addFields(
+                    { name: '👤 User', value: `${interaction.user}`, inline: true },
+                    { name: '📅 Date', value: `<t:${nowInSeconds}:F>`, inline: true },
+                    { name: '🖥️ Command', value: codeBlock('kotlin', executedCommand) },
+                );
 
             // Channel logging
-            const loggingChannelId = process.env.COMMAND_LOGGING;
-            if (loggingChannelId) {
-                const channel = client.channels.cache.get(loggingChannelId);
+            if (process.env.COMMAND_LOGGING_CHANNEL) {
+                const channel = client.channels.cache.get(process.env.COMMAND_LOGGING_CHANNEL);
                 if (channel?.type === ChannelType.GuildText) {
                     channel.send({ embeds: [logEmbed] }).catch(console.error);
                 }
