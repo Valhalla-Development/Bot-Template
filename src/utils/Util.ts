@@ -80,7 +80,7 @@ export async function handleError(client: Client, error: unknown): Promise<void>
 
     console.error(error);
 
-    if (process.env.LOGGING?.toLowerCase() !== 'true' || !process.env.LOGGING_CHANNEL) return;
+    if (process.env.ENABLE_LOGGING?.toLowerCase() !== 'true' || !process.env.LOGGING_CHANNEL) return;
 
     /**
      * Truncates the description if it exceeds the maximum length.
