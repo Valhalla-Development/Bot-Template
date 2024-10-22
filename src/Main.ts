@@ -10,6 +10,7 @@ import { handleError } from './utils/Util.js';
 const client = new Client({
     intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.MessageContent],
     silent: true,
+    botGuilds: process.env.GUILDS ? process.env.GUILDS.split(',') : undefined,
 });
 
 /**
