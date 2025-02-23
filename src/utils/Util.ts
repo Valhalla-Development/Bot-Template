@@ -1,7 +1,12 @@
 import {
-    ActivityType, ChannelType, codeBlock, EmbedBuilder, Message, TextChannel,
+    ActivityType,
+    ChannelType,
+    EmbedBuilder,
+    type Message,
+    type TextChannel,
+    codeBlock,
 } from 'discord.js';
-import { Client } from 'discordx';
+import type { Client } from 'discordx';
 import '@colors/colors';
 
 /**
@@ -80,7 +85,9 @@ export async function handleError(client: Client, error: unknown): Promise<void>
 
     console.error(error);
 
-    if (process.env.ENABLE_LOGGING?.toLowerCase() !== 'true' || !process.env.LOGGING_CHANNEL) return;
+    if (process.env.ENABLE_LOGGING?.toLowerCase() !== 'true' || !process.env.LOGGING_CHANNEL) {
+        return;
+    }
 
     /**
      * Truncates the description if it exceeds the maximum length.
@@ -89,14 +96,18 @@ export async function handleError(client: Client, error: unknown): Promise<void>
      */
     function truncateDescription(description: string): string {
         const maxLength = 4096;
-        if (description.length <= maxLength) return description;
+        if (description.length <= maxLength) {
+            return description;
+        }
 
         const numTruncatedChars = description.length - maxLength;
         return `${description.slice(0, maxLength)}... ${numTruncatedChars} more`;
     }
 
     try {
-        const channel = client.channels.cache.get(process.env.LOGGING_CHANNEL) as TextChannel | undefined;
+        const channel = client.channels.cache.get(process.env.LOGGING_CHANNEL) as
+            | TextChannel
+            | undefined;
 
         if (!channel || channel.type !== ChannelType.GuildText) {
             console.error(`Invalid logging channel: ${process.env.LOGGING_CHANNEL}`);

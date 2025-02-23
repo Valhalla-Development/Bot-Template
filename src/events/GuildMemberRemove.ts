@@ -1,5 +1,4 @@
-import type { Client } from 'discordx';
-import { Discord, Once } from 'discordx';
+import { type Client, Discord, Once } from 'discordx';
 import { updateStatus } from '../utils/Util.js';
 
 /**
@@ -13,7 +12,7 @@ export class GuildMemberRemove {
      * @returns void
      */
     @Once({ event: 'guildMemberRemove' })
-    async onGuildMemberRemove(client: Client) {
+    onGuildMemberRemove(client: Client) {
         // Set activity
         updateStatus(client);
     }

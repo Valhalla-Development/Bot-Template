@@ -8,7 +8,11 @@ import { handleError } from './utils/Util.js';
  * The Discord.js client instance.
  */
 const client = new Client({
-    intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.MessageContent],
+    intents: [
+        IntentsBitField.Flags.Guilds,
+        IntentsBitField.Flags.GuildMessages,
+        IntentsBitField.Flags.MessageContent,
+    ],
     silent: true,
     botGuilds: process.env.GUILDS ? process.env.GUILDS.split(',') : undefined,
 });
@@ -42,10 +46,20 @@ async function run() {
 
     const required = ['BOT_TOKEN'];
 
-    required.forEach((v) => { if (!process.env[v]) throw new Error(missingVar(v)); });
+    for (const v of required) {
+        if (!process.env[v]) {
+            throw new Error(missingVar(v));
+        }
+    }
 
-    if (process.env.ENABLE_LOGGING?.toLowerCase() === 'true' && (!process.env.ERROR_LOGGING_CHANNEL && !process.env.COMMAND_LOGGING_CHANNEL)) {
-        throw new Error('ERROR_LOGGING_CHANNEL and COMMAND_LOGGING_CHANNEL are required when logging is enabled.');
+    if (
+        process.env.ENABLE_LOGGING?.toLowerCase() === 'true' &&
+        !process.env.ERROR_LOGGING_CHANNEL &&
+        !process.env.COMMAND_LOGGING_CHANNEL
+    ) {
+        throw new Error(
+            'ERROR_LOGGING_CHANNEL and COMMAND_LOGGING_CHANNEL are required when logging is enabled.'
+        );
     }
 
     /**
@@ -53,9 +67,10 @@ async function run() {
      * @param ms - The time in milliseconds to delay the execution of the function.
      * @returns A promise that resolves after the specified time has passed.
      */
-    const sleep = (ms: number): Promise<void> => new Promise<void>((resolve) => {
-        setTimeout(resolve, ms);
-    });
+    const sleep = (ms: number): Promise<void> =>
+        new Promise<void>((resolve) => {
+            setTimeout(resolve, ms);
+        });
     const time = 200;
 
     /**

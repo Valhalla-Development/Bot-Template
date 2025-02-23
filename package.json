@@ -9,12 +9,12 @@
   "bugs": {
     "url": "https://github.com/Valhalla-Development/Bot-Template/issues"
   },
-  "type": "module",
-  "main": "build/Main.js",
   "scripts": {
-    "audit": "eslint . --ext .ts --format codeframe --max-warnings 0",
-    "dev": "tsc-watch --onSuccess \"node ./build/Main.js\" --onFailure \"echo Compilation failed\"",
-    "start": "rm -rf build && tsc && node build/Main.js"
+    "lint": "tsc --noEmit -p tsconfig.json && biome check --files-ignore-unknown=true --diagnostic-level=error --no-errors-on-unmatched src",
+    "lint:fix": "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true src",
+    "dev": "bun --watch src/Main.ts",
+    "start": "bun src/Main.ts",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@colors/colors": "^1.6.0",
@@ -27,18 +27,8 @@
     "systeminformation": "^5.23.5"
   },
   "devDependencies": {
-    "@types/node": "^22.7.7",
-    "@typescript-eslint/eslint-plugin": "^8.11.0",
-    "@typescript-eslint/parser": "^8.11.0",
-    "eslint": "8.57.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-formatter-codeframe": "^7.32.1",
-    "eslint-plugin-import": "^2.31.0",
-    "tsc-watch": "^6.2.0",
-    "typescript": "^5.6.3"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "yarn@4.5.1"
+    "@biomejs/biome": "^1.9.4",
+    "typescript": "^5.6.3",
+    "ultracite": "^4.1.20"
+  }
 }
