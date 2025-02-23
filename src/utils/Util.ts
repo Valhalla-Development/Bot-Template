@@ -78,12 +78,14 @@ export const reversedRainbow = (str: string): string => {
  * @param error - The unknown error
  */
 export async function handleError(client: Client, error: unknown): Promise<void> {
-    if (!(error instanceof Error) || !error.stack) {
-        console.error('Invalid error object:', error);
-        return;
-    }
+    // Properly log the raw error for debugging
+    console.error('Raw error:', error);
 
-    console.error(error);
+    // Create an error object if we received something else
+    const normalizedError = error instanceof Error ? error : new Error(String(error));
+
+    // Ensure we have a stack trace
+    const errorStack = normalizedError.stack || normalizedError.message || String(error);
 
     if (process.env.ENABLE_LOGGING?.toLowerCase() !== 'true' || !process.env.LOGGING_CHANNEL) {
         return;
@@ -99,7 +101,6 @@ export async function handleError(client: Client, error: unknown): Promise<void>
         if (description.length <= maxLength) {
             return description;
         }
-
         const numTruncatedChars = description.length - maxLength;
         return `${description.slice(0, maxLength)}... ${numTruncatedChars} more`;
     }
@@ -114,8 +115,7 @@ export async function handleError(client: Client, error: unknown): Promise<void>
             return;
         }
 
-        const typeOfError = error.name || 'Unknown Error';
-        const fullError = error.stack;
+        const typeOfError = normalizedError.name || 'Unknown Error';
         const timeOfError = `<t:${Math.floor(Date.now() / 1000)}>`;
 
         const fullString = [
@@ -123,7 +123,7 @@ export async function handleError(client: Client, error: unknown): Promise<void>
             `Time: ${timeOfError}`,
             '',
             'Error:',
-            codeBlock('js', fullError),
+            codeBlock('js', errorStack),
         ].join('\n');
 
         const embed = new EmbedBuilder()
