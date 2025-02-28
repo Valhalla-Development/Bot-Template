@@ -87,7 +87,10 @@ export async function handleError(client: Client, error: unknown): Promise<void>
     // Ensure we have a stack trace
     const errorStack = normalizedError.stack || normalizedError.message || String(error);
 
-    if (process.env.ENABLE_LOGGING?.toLowerCase() !== 'true' || !process.env.LOGGING_CHANNEL) {
+    if (
+        process.env.ENABLE_LOGGING?.toLowerCase() !== 'true' ||
+        !process.env.ERROR_LOGGING_CHANNEL
+    ) {
         return;
     }
 
@@ -106,12 +109,12 @@ export async function handleError(client: Client, error: unknown): Promise<void>
     }
 
     try {
-        const channel = client.channels.cache.get(process.env.LOGGING_CHANNEL) as
+        const channel = client.channels.cache.get(process.env.ERROR_LOGGING_CHANNEL) as
             | TextChannel
             | undefined;
 
         if (!channel || channel.type !== ChannelType.GuildText) {
-            console.error(`Invalid logging channel: ${process.env.LOGGING_CHANNEL}`);
+            console.error(`Invalid logging channel: ${process.env.ERROR_LOGGING_CHANNEL}`);
             return;
         }
 
