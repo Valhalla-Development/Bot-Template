@@ -10,7 +10,7 @@
     <a href="https://github.com/Valhalla-Development/ValkyrieCore/issues"><img src="https://img.shields.io/github/issues/Valhalla-Development/ValkyrieCore.svg?style=for-the-badge&color=red" alt="Issues"></a>
     <a href="https://github.com/Valhalla-Development/ValkyrieCore/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Valhalla-Development/ValkyrieCore.svg?style=for-the-badge&color=blue" alt="License"></a>
     <br>
-    <a href="https://app.codacy.com/gh/Valhalla-Development/ValkyrieCore/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://img.shields.io/codacy/grade/49b97351b8604c9a904991e633afc0be?style=for-the-badge&color=brightgreen" alt="Codacy"></a>
+    <a href="https://app.codacy.com/gh/Valhalla-Development/ValkyrieCore/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://img.shields.io/codacy/grade/35dc6923982948059450c3365912d1a1?style=for-the-badge&color=brightgreen" alt="Codacy"></a>
     <a href="#"><img src="https://img.shields.io/badge/Powered%20by-discord.js-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Powered by discord.js"></a>
     <a href="#"><img src="https://img.shields.io/badge/Made%20with-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="Made with TypeScript"></a>
   </p>
