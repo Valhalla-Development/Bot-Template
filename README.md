@@ -103,23 +103,24 @@ This project provides a solid foundation for creating a Discord bot using [disco
 <div align="center">
   <table>
     <tr>
-      <td align="center">
-        <strong>Bot Info Dashboard</strong><br>
-        <img src="https://share.valhalladev.org/r/eB587n.png" width="400px" alt="Bot Info">
+      <td align="center" width="50%">
+        <strong>Bot Info</strong><br>
+        <img src="https://share.valhalladev.org/u/BotStartupInfo.png" width="400px" alt="Bot Info">
       </td>
-      <td align="center">
+      <td align="center" width="50%">
         <strong>Error Handling</strong><br>
-        <img src="https://share.valhalladev.org/r/Raxmmv.png" width="300px" alt="Error Handler">
+        <img src="https://share.valhalladev.org/u/BotErrorHandler.png" width="400px" alt="Error Handler">
       </td>
     </tr>
     <tr>
-      <td align="center">
+      <td align="center" width="50%">
         <strong>Command Logging</strong><br>
-        <img src="https://share.valhalladev.org/r/rsRWEI.png" width="400px" alt="Command Logger">
+        <img src="https://share.valhalladev.org/u/BotCommandLogging.png" width="400px" alt="Command Logger">
       </td>
-      <td align="center">
+      <td align="center" width="50%">
         <strong>Help Command</strong><br>
-        <img src="https://share.valhalladev.org/r/oufi4V.png" width="400px" alt="Help Command">
+        <em>Automatically enables pagination when multiple command categories exist</em><br>
+        <img src="https://share.valhalladev.org/u/BotHelpCommandDiscord.png" width="400px" alt="Help Command">
       </td>
     </tr>
   </table>
