@@ -1,59 +1,173 @@
-# Discord Bot Template
-
 <div align="center">
-  <a href="https://discord.gg/Q3ZhdRJ">
-    <img src="https://img.shields.io/discord/495602800802398212.svg?colorB=Blue&logo=discord&label=Support&style=for-the-badge" alt="Support">
-  </a>
-  <a href="https://github.com/Valhalla-Development/Bot-Template">
-    <img src="https://img.shields.io/github/languages/top/Valhalla-Development/Bot-Template.svg?style=for-the-badge" alt="Language">
-  </a>
-  <a href="https://github.com/Valhalla-Development/Bot-Template/issues">
-    <img src="https://img.shields.io/github/issues/Valhalla-Development/Bot-Template.svg?style=for-the-badge" alt="Issues">
-  </a>
-  <a href="https://github.com/Valhalla-Development/Bot-Template/pulls">
-    <img src="https://img.shields.io/github/issues-pr/Valhalla-Development/Bot-Template.svg?style=for-the-badge" alt="Pull Requests">
-  </a>
-  <a href="https://app.codacy.com/gh/Valhalla-Development/Bot-Template/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade">
-    <img src="https://img.shields.io/codacy/grade/49b97351b8604c9a904991e633afc0be?style=for-the-badge" alt="Codacy Ranking">
-  </a>
+  <img id="top" src="https://share.valhalladev.org/u/ValkyrieCore.png" width="100%" alt="ValkyrieCore Banner">
+
+# 🤖 ValkyrieCore: Your Gateway to Bot Development! 🚀
+
+  <p>
+    <a href="https://discord.gg/Q3ZhdRJ"><img src="https://img.shields.io/discord/495602800802398212.svg?colorB=5865F2&logo=discord&logoColor=white&style=for-the-badge" alt="Discord"></a>
+    <a href="https://github.com/Valhalla-Development/ValkyrieCore/stargazers"><img src="https://img.shields.io/github/stars/Valhalla-Development/ValkyrieCore.svg?style=for-the-badge&color=yellow" alt="Stars"></a>
+    <a href="https://github.com/Valhalla-Development/ValkyrieCore/network/members"><img src="https://img.shields.io/github/forks/Valhalla-Development/ValkyrieCore.svg?style=for-the-badge&color=orange" alt="Forks"></a>
+    <a href="https://github.com/Valhalla-Development/ValkyrieCore/issues"><img src="https://img.shields.io/github/issues/Valhalla-Development/ValkyrieCore.svg?style=for-the-badge&color=red" alt="Issues"></a>
+    <a href="https://github.com/Valhalla-Development/ValkyrieCore/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Valhalla-Development/ValkyrieCore.svg?style=for-the-badge&color=blue" alt="License"></a>
+    <br>
+    <a href="https://app.codacy.com/gh/Valhalla-Development/ValkyrieCore/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade"><img src="https://img.shields.io/codacy/grade/49b97351b8604c9a904991e633afc0be?style=for-the-badge&color=brightgreen" alt="Codacy"></a>
+    <a href="#"><img src="https://img.shields.io/badge/Powered%20by-discord.js-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Powered by discord.js"></a>
+    <a href="#"><img src="https://img.shields.io/badge/Made%20with-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="Made with TypeScript"></a>
+  </p>
+
+  <p><em>A robust foundation for creating powerful Discord bots with modern features and best practices!</em></p>
 </div>
 
-This project provides a template for creating a Discord bot using [discordx](https://discord-x.js.org/) and [discord.js v14](https://discord.js.org/).
+---
+## 🌟 Welcome to the ValkyrieCore, a Discord Bot Template!
 
-## Features (View the bottom of this page to view screenshots)
+This project provides a solid foundation for creating a Discord bot using [discordx](https://discord-x.js.org/) and [discord.js v14](https://discord.js.org/), designed with scalability and ease of use in mind.
 
-- **Bot Info:** Upon startup, the bot provides a concise status report, detailing key operational metrics such as the number of users, guilds, slash commands, events, and memory usage, as well as the Node.js and discord.js versions it's running on.
-- **Error Handling:** This template comes with a robust error handling system. It logs errors to the console for debugging and can send detailed error messages to a specific Discord channel. These messages are neatly formatted within a Discord embed for easy readability. To enable this feature, provide the `LoggingChannel` variable in your `.env` file with the ID of the desired channel.
-- **Command Logging:** Similar to error handling, this template offers the ability to log command usage. It can send formatted embeds to a channel of your choice. To enable this feature, provide the `CommandLogging` variable in your `.env` file with the ID of the desired channel.
-- **TSDoc Comments and Documentation:** The bot template is thoroughly documented with TSDoc comments and includes explanatory comments throughout the code. These comments and documentation serve as a helpful resource to understand how different components and functionalities of the bot work.
-- **Included Commands:** The template comes with two built-in commands:
-    - **Ping Command:** This command provides statistics about the latency of your bot, giving you insights into its responsiveness.
-    - **Help Command:** The help command is a feature-rich command built from the ground up. It utilizes slash command links to generate a dynamic and interactive help menu, making it easy for users to explore and understand the available commands.
+## 🎮 Features That Power Your Bot
 
-These features provide a solid foundation for building and customizing your Discord bot while ensuring good documentation and error handling for a smooth user experience.
+<table>
+  <tr>
+    <td width="50%">
+      <h3>📊 Bot Info Dashboard</h3>
+      <p>Detailed startup metrics showing users, guilds, commands, and system specs.</p>
+    </td>
+    <td width="50%">
+      <h3>🛡️ Robust Error Handling</h3>
+      <p>Comprehensive error tracking with console and Discord channel logging.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>📝 Command Logging</h3>
+      <p>Track command usage with formatted embeds sent to your designated channel.</p>
+    </td>
+    <td width="50%">
+      <h3>📚 Thorough Documentation</h3>
+      <p>Well-documented code with TSDoc comments for easy understanding and customization.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h3>⚡ Performance Optimized</h3>
+      <p>Built with efficiency in mind to handle commands quickly and reliably.</p>
+    </td>
+    <td width="50%">
+      <h3>❓ Interactive Help Menu</h3>
+      <p>Dynamic help command with slash command links for intuitive user experience.</p>
+    </td>
+  </tr>
+</table>
 
-## Setup
+## 🚀 Requirements
 
-1. Download the source by clicking on 'Releases' -> 'Latest version' -> 'Source code (zip)' or [click here](https://github.com/Valhalla-Development/Bot-Template/releases).
-2. Extract the zip using an archive tool of your choice.
-3. Inside the extracted folder, you will find a file named `.env.example`. Rename it to `.env` and fill in the necessary values. If you're unsure where to find your bot token and owner ID, refer to these links: [bot token](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token) | [owner ID](https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-).
-4. Open a console window in the root directory of the bot and run the following commands:
+- [Bun](https://bun.sh/)
+- [Discord Account](https://discord.com/)
 
-```shell
-$ yarn install  # Installs the required modules. Once completed, run the next command:
-$ yarn build    # Builds the source.
-$ yarn start    # Starts your bot. You are now ready to use your bot!
-```
+## 🛠️ Setup Guide
 
-## Screenshots
+1. [Download](https://github.com/Valhalla-Development/ValkyrieCore/releases) the latest release (click on 'Source code (zip)').
 
-Screenshots related to the Features mentioned in this page.
+2. Extract and move the files to your desired location.
 
-- Bot Info 
-</br><img src="https://share.valhalladev.org/r/eB587n.png" alt="Bot Info" style="width: 500px;">
-- Error Handling
-</br><img src="https://share.valhalladev.org/r/Raxmmv.png" alt="Error Handler" style="width: 300px;">
-- Command Logging
-</br><img src="https://share.valhalladev.org/r/rsRWEI.png" alt="Command Logger" style="width: 400px;">
-- Help Command
-</br><img src="https://share.valhalladev.org/r/oufi4V.png" alt="Help" style="width: 400px;">
+3. Install Bun:
+   - Mac/Linux:
+     ```bash
+     curl -fsSL https://bun.sh/install | bash
+     ```
+   - Windows:
+     ```powershell
+     powershell -c "irm bun.sh/install.ps1 | iex"
+     ```
+
+4. Navigate to your project folder:
+    ```bash
+    cd /path/to/your/extracted/source
+    ```
+
+5. Rename `.env.example` to `.env` and fill in your bot's details:
+   - [Bot Token Guide](https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token)
+   - [Owner ID Guide](https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-)
+
+6. Install dependencies:
+    ```bash
+    bun install
+    ```
+
+7. Start the bot:
+    ```bash
+    bun start
+    ```
+
+## 📸 Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <strong>Bot Info Dashboard</strong><br>
+        <img src="https://share.valhalladev.org/r/eB587n.png" width="400px" alt="Bot Info">
+      </td>
+      <td align="center">
+        <strong>Error Handling</strong><br>
+        <img src="https://share.valhalladev.org/r/Raxmmv.png" width="300px" alt="Error Handler">
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <strong>Command Logging</strong><br>
+        <img src="https://share.valhalladev.org/r/rsRWEI.png" width="400px" alt="Command Logger">
+      </td>
+      <td align="center">
+        <strong>Help Command</strong><br>
+        <img src="https://share.valhalladev.org/r/oufi4V.png" width="400px" alt="Help Command">
+      </td>
+    </tr>
+  </table>
+</div>
+
+## 🤝 Contributing
+
+We welcome contributions to improve this template! If you'd like to contribute:
+
+1. Fork the repository
+2. Create a new branch for your feature or bug fix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes and commit them with a clear, descriptive message:
+   ```bash
+   git commit -m 'Add feature: brief description of your changes'
+   ```
+4. Push your changes to your fork:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a Pull Request against the main repository's `main` branch
+
+Please ensure your code adheres to the project's coding standards and include tests for new features or bug fixes where applicable. We appreciate detailed descriptions in your Pull Request to help with the review process.
+
+## 📜 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgements
+
+- [discord.js](https://discord.js.org/) for the powerful Discord API wrapper
+- [discordx](https://discord-x.js.org/) for the decorator-based command framework
+- [Bun](https://bun.sh/) for the blazing fast JavaScript runtime
+- All our contributors and supporters who help improve this template
+
+## 📬 Support & Community
+
+Got questions or need help? Join our [Discord server](https://discord.gg/Q3ZhdRJ) for support and to connect with other bot developers!
+
+---
+
+<div align="center">
+
+💻 Crafted with ❤️ by [Valhalla-Development](https://github.com/Valhalla-Development)
+
+[🐛 Spotted an issue?](https://github.com/Valhalla-Development/ValkyrieCore/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml&title=%5BBUG%5D+Short+Description) | [💡 Got an idea?](https://github.com/Valhalla-Development/ValkyrieCore/issues/new?assignees=&labels=enhancement&projects=&template=feature_request.yml&title=%5BFeature%5D+Short+Description) | [🤔 Need help?](https://discord.gg/Q3ZhdRJ)
+
+<a href="#top">🔝 Back to Top</a>
+</div>
