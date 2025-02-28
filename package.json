@@ -1,13 +1,13 @@
 {
-  "name": "bot-template",
+  "name": "valkyriecore",
   "version": "1.1.0",
   "description": "This project provides a template for creating a Discord bot using discordx and discord.js v14.",
   "license": "GPL-3.0-or-later",
   "author": "Ragnar Lothbrok <ragnarlothbrokjr@proton.me>",
-  "homepage": "https://github.com/Valhalla-Development/Bot-Template#readme",
-  "repository": "https://github.com/Valhalla-Development/Bot-Template.git",
+  "homepage": "https://github.com/Valhalla-Development/ValkyrieCore#readme",
+  "repository": "https://github.com/Valhalla-Development/ValkyrieCore.git",
   "bugs": {
-    "url": "https://github.com/Valhalla-Development/Bot-Template/issues"
+    "url": "https://github.com/Valhalla-Development/ValkyrieCore/issues"
   },
   "scripts": {
     "lint": "tsc --noEmit -p tsconfig.json && biome check --files-ignore-unknown=true --diagnostic-level=error --no-errors-on-unmatched src",
