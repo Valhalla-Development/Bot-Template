@@ -149,7 +149,7 @@ Please ensure your code adheres to the project's coding standards and include te
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GPL-3.0 License - see the LICENSE file for details. (It's mostly "Share the love, and keep it open!")
 
 ## 🙏 Acknowledgements
 
